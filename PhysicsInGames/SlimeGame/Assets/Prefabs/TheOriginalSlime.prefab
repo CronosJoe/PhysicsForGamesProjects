@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7c4c375a5a876be41b866eb51c61412b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -125,11 +125,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acde48862b7914542bc0b75549aaf940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardJumpForce: 5.74
-  verticalJumpForce: 5.9
+  forwardJumpForce: 8
+  verticalJumpForce: 8
   objective: {fileID: 0}
   jumpDelay: 3
   turnSpeed: 3
+  ageUpScore: 5
   layerToHit:
     serializedVersion: 2
     m_Bits: 256

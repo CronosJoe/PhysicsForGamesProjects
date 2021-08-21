@@ -27,21 +27,21 @@ public class SlimeMove : MonoBehaviour
     #region HideTheUgly
     void Jumping()
     {
-        bool jumpForce = Input.GetButtonDown("Jump");
-        if ((jumpTime+=Time.deltaTime)>jumpDelay && jumpForce)
-        {
-            jumpTime = 0;
-            Vector3 movingForce = transform.rotation * new Vector3(0, upForce, forwardJumpSpeed);
-            slimeRB.AddForce(movingForce, ForceMode.Impulse);
-        }
+        //bool jumpForce = Input.GetButtonDown("Jump");
+        //if ((jumpTime+=Time.deltaTime)>jumpDelay && jumpForce)
+        //{
+        //    jumpTime = 0;
+        //    Vector3 movingForce = transform.rotation * new Vector3(0, upForce, forwardJumpSpeed);
+        //    slimeRB.AddForce(movingForce, ForceMode.Impulse);
+        //}
     }
     void Turning() 
     {
-        bool turnNow = Input.GetButton("Horizontal");
-        if (turnNow) 
-        {
-            transform.Rotate(new Vector3(0, Input.GetAxisRaw("Horizontal") * turnSpeed*Time.deltaTime, 0));
-        }
+        //bool turnNow = Input.GetButton("Horizontal");
+        //if (turnNow) 
+        //{
+        //    transform.Rotate(new Vector3(0, Input.GetAxisRaw("Horizontal") * turnSpeed*Time.deltaTime, 0));
+        //}
     }
     #endregion
 }
