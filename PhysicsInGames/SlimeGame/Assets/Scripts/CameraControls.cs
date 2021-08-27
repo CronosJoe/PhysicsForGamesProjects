@@ -15,7 +15,11 @@ public class CameraControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 rotateVector2 = cameraInput.currentActionMap["CameraRotation"].ReadValue<Vector2>();
-        transform.rotation *= Quaternion.Euler(rotateVector2);
+        float rotateValue = cameraInput.currentActionMap["CameraRotation"].ReadValue<float>();
+        Vector3 rotateVector = new Vector3(0, rotateValue, 0);
+        transform.rotation *= Quaternion.Euler(rotateVector);
+
+        float moveValue = cameraInput.currentActionMap["MovingCamera"].ReadValue<float>();
+        
     }
 }
