@@ -7,7 +7,7 @@ public class Spline : MonoBehaviour
     [SerializeField] GameObject objFab = null;
     [SerializeField] float delay = 1.0f;
     [SerializeField] List<Transform> waypoints = new List<Transform>();
-    [SerializeField] GameObject movingPlatform;
+    [SerializeField] GameObject movingPlatform = null;
     Rigidbody platformRB;
     // Update is called once per frame
     float timer = 0.0f;
