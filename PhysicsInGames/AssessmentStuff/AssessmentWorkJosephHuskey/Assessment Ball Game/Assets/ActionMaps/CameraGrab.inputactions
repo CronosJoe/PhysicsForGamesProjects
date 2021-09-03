@@ -1,0 +1,52 @@
+{
+    "name": "CameraGrab",
+    "maps": [
+        {
+            "name": "CameraOnMouse",
+            "id": "fbfa91d6-26ee-4f64-bf14-7d87634ff00f",
+            "actions": [
+                {
+                    "name": "Clicking",
+                    "type": "Button",
+                    "id": "5042555e-c99a-4210-a51c-de186b796e37",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "MovingCamera",
+                    "type": "Value",
+                    "id": "46f29ead-baec-4ded-a34f-13cf9109bd5e",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f2b5b6a5-86a6-4708-8f20-a2289b7f41d7",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Clicking",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "537bb276-db3f-493c-a388-9846a3cfc902",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MovingCamera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

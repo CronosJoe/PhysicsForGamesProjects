@@ -1,0 +1,5 @@
+Obstacle Ideas:
+Swinging obstacles that would knock the players off the track
+A fan or something to bring in trigger collision to push the player towards stuff, these might need to have a player interaction to make interesting
+a spring pad to showw off hooks law or something
+Something for ragdoll? Enemy? Hand controller?
