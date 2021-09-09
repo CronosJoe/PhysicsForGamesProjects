@@ -11,6 +11,7 @@ public class CameraRaycast : MonoBehaviour
     [SerializeField] float smooth = 0.4f;
     Vector3 vel = new Vector3();
     [SerializeField] Camera cam;
+    [SerializeField]LayerMask interactableLayer = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -22,17 +23,12 @@ public class CameraRaycast : MonoBehaviour
 
     private void RayCastFromMouse(InputAction.CallbackContext obj)
     {
-        //TODO fix this ray so that the raycast goes towards player/interactables
-        Ray cameraRay = cam.ViewportPointToRay(Vector3.forward);
+        //TODO fix this ray so that the raycast goes towards player/interactable
         RaycastHit hitTarget;
-        Debug.DrawRay(cameraRay.origin, cameraRay.direction,Color.red);
-        if (Physics.Raycast(cameraRay, out hitTarget))
+        if (Physics.Raycast(cam.transform.position, Vector3.forward, out hitTarget, 400f, interactableLayer))
         {
             print("Current hit is " + hitTarget.transform.name);
-        }
-        else
-        {
-            print("missed");
+            //put the interaction portion here
         }
     }
 

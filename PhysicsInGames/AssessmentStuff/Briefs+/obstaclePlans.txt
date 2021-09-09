@@ -1,5 +1,9 @@
 Obstacle Ideas:
-Swinging obstacles that would knock the players off the track
-A fan or something to bring in trigger collision to push the player towards stuff, these might need to have a player interaction to make interesting
-a spring pad to showw off hooks law or something
-Something for ragdoll? Enemy? Hand controller?
+Swinging obstacles that would knock the players off the track, these can be controlled by the player, if the player activates them they will change direction allowing the ball to get past.
+A fan or something to bring in trigger collision to push the player towards stuff, If the player activates the fan it will either turn on or off.
+a spring pad that that ball can bounce on, the player can move this object around with WASD
+Something for ragdoll?
+
+Plans
+Thursday: Make obstacles and interactable work together
+Friday:Title screen/map design
