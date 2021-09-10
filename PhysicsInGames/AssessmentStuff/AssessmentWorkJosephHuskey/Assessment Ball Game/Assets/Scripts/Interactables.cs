@@ -2,19 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Interactables : MonoBehaviour
 {
-    [SerializeField] GameObject controlledObject;
-
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] bool hasBeenInteracted = false;
+    public GameObject controlledObject;
+    private void Start()
     {
-        
+        hasBeenInteracted = false;
     }
-
-    // Update is called once per frame
-    void Update()
+    public GameObject SelectedByPlayer() 
     {
-        
+        return controlledObject;
+    }
+    public void FinishedControlling() 
+    {
+        hasBeenInteracted = false;
     }
 }

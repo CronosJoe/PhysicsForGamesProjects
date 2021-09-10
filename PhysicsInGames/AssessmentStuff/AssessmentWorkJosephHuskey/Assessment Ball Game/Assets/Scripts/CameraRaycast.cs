@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,13 +13,22 @@ public class CameraRaycast : MonoBehaviour
     Vector3 vel = new Vector3();
     [SerializeField] Camera cam;
     [SerializeField]LayerMask interactableLayer = 0;
-
+    GameObject currentControlled = null;
+    bool currentlyControlling = false;
+    GameObject activatorObject = null;
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = true;
         cameraMover.currentActionMap["Clicking"].started += RayCastFromMouse;
+        cameraMover.currentActionMap["Activated"].started += UseCurrentAction;
+    }
+
+    private void UseCurrentAction(InputAction.CallbackContext obj)
+    {
+        if(currentControlled)
+        currentControlled.GetComponent<Obstacles>().Activated();
     }
 
     private void RayCastFromMouse(InputAction.CallbackContext obj)
@@ -27,8 +37,14 @@ public class CameraRaycast : MonoBehaviour
         RaycastHit hitTarget;
         if (Physics.Raycast(cam.transform.position, Vector3.forward, out hitTarget, 400f, interactableLayer))
         {
-            print("Current hit is " + hitTarget.transform.name);
-            //put the interaction portion here
+            print(hitTarget.transform.name);
+            currentControlled = hitTarget.transform.GetComponent<Interactables>().controlledObject;
+            currentlyControlling = true;
+            if (activatorObject) 
+            {
+                activatorObject.GetComponent<Interactables>().FinishedControlling();
+            }
+            activatorObject = hitTarget.collider.gameObject;
         }
     }
 
