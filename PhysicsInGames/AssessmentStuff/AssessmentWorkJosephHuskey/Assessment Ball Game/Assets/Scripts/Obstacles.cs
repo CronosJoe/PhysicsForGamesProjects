@@ -6,10 +6,14 @@ public class Obstacles : MonoBehaviour
 {
     [SerializeField] int ID; //I plan to set this when I setup the prefabs
     // Start is called before the first frame update
-    [SerializeField] bool canMove; //if the object can be moved with wasd or just ad
+    public bool canMove; //if the object can be moved with wasd or just ad
     [Range(0, 100)]
-    [SerializeField] float fanSpeed;
-    [SerializeField] bool fanGoing;
+    [SerializeField] float fanSpeed = 0;
+    [SerializeField] bool fanGoing = false;
+    [Range(0, 100)]
+    [SerializeField] float movementTime = 0;
+    [SerializeField] float moveSpeed;
+    Vector3 vel = new Vector3();
     public void Activated()
     {
         if (ID < 2)
@@ -25,16 +29,11 @@ public class Obstacles : MonoBehaviour
             }
         }
     }
-    void Move() 
+    public void Movement(Vector2 movementVector) 
     {
-        if (ID == 2) 
-        {
-            MoveSpring();
-        }
-    }
-    void MoveSpring() 
-    {
-
+        print("test " + movementVector);
+        Vector3 movementVector3 = new Vector3(movementVector.x, 0, movementVector.y)*Time.deltaTime * moveSpeed;
+        transform.Translate(movementVector3, Space.World);
     }
     void SwingActive()
     {

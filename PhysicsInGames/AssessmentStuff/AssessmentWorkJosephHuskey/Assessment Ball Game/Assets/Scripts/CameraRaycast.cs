@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class CameraRaycast : MonoBehaviour
 {
+    //this script will handle player input and 
     [SerializeField] PlayerInput cameraMover;
     [Range(0, 100)]
     [SerializeField] float cameraSpeed = 0;
@@ -23,6 +24,13 @@ public class CameraRaycast : MonoBehaviour
         Cursor.visible = true;
         cameraMover.currentActionMap["Clicking"].started += RayCastFromMouse;
         cameraMover.currentActionMap["Activated"].started += UseCurrentAction;
+    }
+
+    private void MoveControlledObject()
+    {
+        if (currentControlled)
+            if (currentControlled.GetComponent<Obstacles>().canMove)
+            currentControlled.GetComponent<Obstacles>().Movement(cameraMover.currentActionMap["MovingObstacle"].ReadValue<Vector2>());
     }
 
     private void UseCurrentAction(InputAction.CallbackContext obj)
@@ -52,6 +60,7 @@ public class CameraRaycast : MonoBehaviour
     void FixedUpdate()
     {
         MoveCamera();
+        MoveControlledObject();
     }
     void MoveCamera()
     {
