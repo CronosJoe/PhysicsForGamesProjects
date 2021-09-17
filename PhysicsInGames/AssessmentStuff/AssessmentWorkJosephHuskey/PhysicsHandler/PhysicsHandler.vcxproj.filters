@@ -18,22 +18,34 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MainClass.cpp">
-      <Filter>PhysicsGame</Filter>
-    </ClCompile>
     <ClCompile Include="baseGame.cpp">
-      <Filter>PhysicsGame</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="demoGame.cpp">
-      <Filter>PhysicsGame</Filter>
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="physicsObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="shape.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="baseGame.h">
-      <Filter>PhysicsGame</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DemoGame.h">
-      <Filter>PhysicsGame</Filter>
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="physicsObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="shape.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

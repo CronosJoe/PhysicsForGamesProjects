@@ -1,4 +1,7 @@
 #pragma once
+
+#include "Raylib/raylib.h"
+#include "GLM/glm.hpp"
 class baseGame
 {
 protected:
@@ -36,7 +39,10 @@ public:
     bool shouldClose() const;
 
     //frame trackers
-    const float fixedTimestep = 0.02f;
-    const float maxTimeStep = 0.3f;
-    float accumulatedTime = 0.0f;
+    float fixedTimestep;
+    float maxTimeStep;
+    float accumulatedTime;
+    Color backgroundColor;
+
+    glm::vec2 gravity;
 };

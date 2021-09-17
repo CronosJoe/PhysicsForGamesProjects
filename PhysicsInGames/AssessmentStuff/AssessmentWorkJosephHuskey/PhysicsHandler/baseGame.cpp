@@ -1,10 +1,12 @@
 #include "baseGame.h"
 
-#include "Raylib/raylib.h"
-
 baseGame::baseGame()
 {
-
+	fixedTimestep = 0.02f;
+	maxTimeStep = 0.3f;
+	accumulatedTime = 0.0f;
+	backgroundColor = RAYWHITE;
+	gravity = glm::vec2(0,0); //defaulting before this is set in init
 }
 void baseGame::init()
 {
@@ -37,7 +39,6 @@ void baseGame::draw() const
 
 	onDraw();
 	
-
 	EndDrawing();
 
 }
