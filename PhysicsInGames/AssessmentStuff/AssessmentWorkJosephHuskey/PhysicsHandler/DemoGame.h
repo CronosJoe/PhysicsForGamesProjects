@@ -14,4 +14,5 @@ class demoGame : public baseGame
 	void onFixedTimeStep() override;
 public:
 	demoGame();
+	int currentShape;
 };

@@ -1,5 +1,28 @@
-﻿  demoGame.cpp
-  MainClass.cpp
+﻿  MainClass.cpp
+  baseGame.cpp
+  demoGame.cpp
+  physicsObject.cpp
+C:\Users\s209062\Desktop\PhysicsHandler\physicsObject.cpp(48,23): warning C4244: 'argument': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\s209062\Desktop\PhysicsHandler\physicsObject.cpp(48,16): warning C4244: 'argument': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\s209062\Desktop\PhysicsHandler\physicsObject.cpp(51,24): warning C4244: 'argument': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\s209062\Desktop\PhysicsHandler\physicsObject.cpp(51,17): warning C4244: 'argument': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  shape.cpp
   Generating Code...
   raylib.lib(core.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
 LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
