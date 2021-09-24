@@ -11,11 +11,15 @@
 using collisionPair = uint8_t;
 //the function signature for our collision detection ie the variables for the funtion to use
 using collisionFunc = bool(*)(const glm::vec2&, const shape&, const glm::vec2&, const shape&);
+using depenetrationFunc = glm::vec2(*)(const glm::vec2 & posA, const shape & shapeA, const glm::vec2 & posB, const shape & shapeB, float& pen);
 //a map that takes a collision pair and returns the correct function to call
 using collisionMap = std::unordered_map<collisionPair, collisionFunc>;
+
+using depenetrationMap = std::unordered_map < collisionPair, depenetrationFunc>;
 class baseGame
 {
     collisionMap map;
+    depenetrationMap depenMap;
 
 protected:
 

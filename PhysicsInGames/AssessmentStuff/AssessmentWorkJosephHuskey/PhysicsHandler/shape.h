@@ -49,4 +49,10 @@ bool aabbAABBCollision(glm::vec2 posA, AABB AABBA, glm::vec2 posB, AABB AABBB);
 
 bool aabbAABBCollision(const glm::vec2& posA, const shape& shapeA, const glm::vec2& posB, const shape& shapeB);
 
+bool circleAABBCollision(const glm::vec2& posA, const shape& shapeA, const glm::vec2& posB, const shape& shapeB);
+
+glm::vec2 depenetrateCircleCircle(const glm::vec2& posA, const shape& shapeA, const glm::vec2& posB, const shape& shapeB, float &pen); //setting pen as a refernece because we will be editing it in this method
+glm::vec2 depenetrateAABBAABB(const glm::vec2& posA, const shape& shapeA, const glm::vec2& posB, const shape& shapeB, float& pen);
+glm::vec2 depenetrateCircleAABB(const glm::vec2& posA, const shape& shapeA, const glm::vec2& posB, const shape& shapeB, float& pen);
+
 

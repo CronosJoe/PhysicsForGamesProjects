@@ -28,6 +28,8 @@ public:
 	void addImpulse(glm::vec2 force); //adding a force based on mass
 
 	void drawObject() const;
-
 	glm::vec2 findVectorToMouse();
 };
+	float resolveCollision(glm::vec2 posA, glm::vec2 velA, float massA, glm::vec2 posB, glm::vec2 velB, float massB, float elasticity, glm::vec2 normal);
+
+	void resolvePhysicsBodies(physicsObject& lhs, physicsObject& rhs, float elasticity, const glm::vec2 normal, float pen);

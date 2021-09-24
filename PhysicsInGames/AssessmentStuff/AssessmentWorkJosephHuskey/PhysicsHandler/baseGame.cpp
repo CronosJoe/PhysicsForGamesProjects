@@ -1,5 +1,5 @@
 #include "baseGame.h"
-
+#include <iostream>
 #include "enumUtils.h"
 
 baseGame::baseGame()
@@ -13,6 +13,12 @@ baseGame::baseGame()
 	//register what happens when a circle-cirlce pairing happens
 	map[static_cast<collisionPair>(shapeType::CIRCLE | shapeType::CIRCLE)] = circleCircleCollision;
 	map[static_cast<collisionPair>(shapeType::AABB | shapeType::AABB)] = aabbAABBCollision;
+	map[static_cast<collisionPair>(shapeType::CIRCLE | shapeType::AABB)] = circleAABBCollision;
+
+	//depenetration map
+	depenMap[static_cast<collisionPair>(shapeType::CIRCLE | shapeType::CIRCLE)] = depenetrateCircleCircle;
+	depenMap[static_cast<collisionPair>(shapeType::AABB | shapeType::AABB)] = depenetrateAABBAABB;
+	depenMap[static_cast<collisionPair>(shapeType::CIRCLE | shapeType::AABB)] = depenetrateCircleAABB;
 }
 void baseGame::init()
 {
@@ -63,7 +69,12 @@ void baseGame::tick()
 				bool collision = map[pairing](physObjects[lhs].pos, physObjects[lhs].collisionShape, physObjects[rhs].pos, physObjects[rhs].collisionShape);
 				if (collision)
 				{
-					//do the thing on collision
+					std::cout << "testing collision" << std::endl;
+
+					float pen = 0.0f;
+					glm::vec2 normal = depenMap[pairing](physObjects[lhs].pos, physObjects[lhs].collisionShape, physObjects[rhs].pos, physObjects[rhs].collisionShape, pen);
+
+					resolvePhysicsBodies(physObjects[lhs], physObjects[rhs], 1.0f, normal, pen);
 				}
 			}
 		}
