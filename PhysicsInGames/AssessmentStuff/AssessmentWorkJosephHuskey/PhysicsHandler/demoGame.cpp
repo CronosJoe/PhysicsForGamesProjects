@@ -8,7 +8,7 @@ void demoGame::onDraw() const
 {
 	ClearBackground(backgroundColor);
 
-	DrawText("window made!", (GetScreenWidth() / 2) - 75, (GetScreenHeight() / 2), 30, RED);
+	DrawText("Press 1 to spawn circles and 2 to spawn squares!", (GetScreenWidth() / 2) - 100, (GetScreenHeight() / 2), 15, RED);
 	for (size_t i = 0; i < physObjects.size(); i++)
 	{
 		physObjects[i].drawObject(); //drawing every object in the vector

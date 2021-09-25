@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class CameraRaycast : MonoBehaviour
 {
@@ -21,9 +22,9 @@ public class CameraRaycast : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = true;
         cameraMover.currentActionMap["Clicking"].started += RayCastFromMouse;
         cameraMover.currentActionMap["Activated"].started += UseCurrentAction;
+        cameraMover.currentActionMap["Escape"].started += BackToMain;
     }
 
     private void MoveControlledObject()
@@ -44,8 +45,7 @@ public class CameraRaycast : MonoBehaviour
         //TODO fix this ray so that the raycast goes towards player/interactable
         RaycastHit hitTarget;
         if (Physics.Raycast(cam.transform.position, Vector3.forward, out hitTarget, 400f, interactableLayer))
-        {
-            print(hitTarget.transform.name);
+        { 
             currentControlled = hitTarget.transform.GetComponent<Interactables>().controlledObject;
             currentlyControlling = true;
             if (activatorObject) 
@@ -66,5 +66,10 @@ public class CameraRaycast : MonoBehaviour
     {
         Vector2 movement = cameraMover.currentActionMap["MovingCamera"].ReadValue<Vector2>();
         transform.position = Vector3.SmoothDamp(transform.position, transform.position + (new Vector3(movement.x, movement.y, 0) * Time.deltaTime * cameraSpeed), ref vel, smooth);
+    }
+
+    public void BackToMain(InputAction.CallbackContext obj) 
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

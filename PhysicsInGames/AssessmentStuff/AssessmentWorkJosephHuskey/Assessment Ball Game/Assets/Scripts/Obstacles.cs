@@ -31,7 +31,6 @@ public class Obstacles : MonoBehaviour
     }
     public void Movement(Vector2 movementVector) 
     {
-        print("test " + movementVector);
         Vector3 movementVector3 = new Vector3(movementVector.x, 0, movementVector.y)*Time.deltaTime * moveSpeed;
         transform.Translate(movementVector3, Space.World);
     }
@@ -49,7 +48,6 @@ public class Obstacles : MonoBehaviour
     {
         if(other.tag == "Player" && fanGoing) 
         {
-            print(other.name);
             other.attachedRigidbody.AddForce(transform.forward*fanSpeed);
         }
     }
