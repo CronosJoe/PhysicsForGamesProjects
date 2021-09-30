@@ -16,6 +16,11 @@ shape::shape(int shapeType)
 		type = shapeType::AABB;
 		dataOfAABB.offset = 30;
 		break;
+	case 3:
+		type = shapeType::AABB;
+		dataOfAABB.offset = 30;
+		//setting to static in demoGame.cpp through the isStatic variable in physicsObject.h
+		break;
 	default:
 		type = shapeType::NONE;
 		break;

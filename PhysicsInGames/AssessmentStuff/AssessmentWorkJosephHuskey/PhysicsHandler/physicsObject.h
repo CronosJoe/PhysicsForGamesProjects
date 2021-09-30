@@ -11,12 +11,13 @@ public:
 	float mass;
 	Color playerColor;
 	shape collisionShape;
+	bool isStatic;
 	//this will be the direction the object has to go to make it to the mouse
 	glm::vec2 directionVector;
 	//standard constructor
 	physicsObject();
 	//the cooler constructor
-	physicsObject(glm::vec2 position, Color colorOfPlayer, float massOfPlayer, shape createdShape);
+	physicsObject(glm::vec2 position, Color colorOfPlayer, float massOfPlayer, shape createdShape, bool IsStatic);
 	void onTickPhys(float delta);
 
 	void addForces(glm::vec2 force); //adding a force to total forces based on delta and mass

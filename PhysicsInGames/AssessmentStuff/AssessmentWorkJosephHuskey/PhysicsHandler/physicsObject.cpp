@@ -8,7 +8,7 @@ physicsObject::physicsObject()
 	playerColor = RED;
 	collisionShape = shape();
 }
-physicsObject::physicsObject(glm::vec2 position, Color colorOfPlayer, float massOfPlayer, shape createdShape)
+physicsObject::physicsObject(glm::vec2 position, Color colorOfPlayer, float massOfPlayer, shape createdShape, bool IsStatic)
 {
 	pos = position;
 	mass = massOfPlayer;
@@ -16,6 +16,7 @@ physicsObject::physicsObject(glm::vec2 position, Color colorOfPlayer, float mass
 	playerColor = colorOfPlayer;
 	vel = glm::vec2(0, 0);
 	collisionShape = createdShape;
+	isStatic = IsStatic;
 }
 
 void physicsObject :: onTickPhys(float delta) //need the fixed tick for delta, probably accumulated time
@@ -81,9 +82,27 @@ void resolvePhysicsBodies(physicsObject& lhs, physicsObject& rhs, float elastici
 	//depenetrate the objects aka seperate them
 	pen *= .51f;
 	glm::vec2 correction = normal * pen;
-	lhs.pos += correction;
-	rhs.pos -= correction;
+	if (lhs.isStatic || rhs.isStatic) 
+	{
+		if (!lhs.isStatic && !rhs.isStatic)//normal
+		{
+			lhs.pos += correction;
+			rhs.pos -= correction;
+			lhs.addImpulse(impulse);
+			rhs.addImpulse(-impulse);
+		}
+		else if(lhs.isStatic)
+		{
+			rhs.pos -= correction * 2.0f;
+			rhs.addImpulse(-impulse);
+		}
+		else if (rhs.isStatic)//if rhs is static
+		{
+			lhs.pos += correction * 2.0f;
+			lhs.addImpulse(impulse);
+		}
+	}
 	//apply resolution impulses to both objects.
-	lhs.addImpulse(impulse);
-	rhs.addImpulse(-impulse);
+	
+	
 }

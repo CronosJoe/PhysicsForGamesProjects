@@ -32,10 +32,15 @@ void demoGame::onFixedTimeStep()
 	}
 	else if(IsKeyPressed(KEY_THREE))
 	{
-		currentShape = 3;//none
+		currentShape = 3;//Static aabb
+	}
+	else if(IsKeyPressed(KEY_FOUR))
+	{
+		currentShape = 4;//none
 	}
 	for (size_t i = 0; i < physObjects.size(); i++)
 	{
+		if(!physObjects[i].isStatic) //this will make only non static objects be affected by gravity, at the moment I only have a cube for that
 		physObjects[i].addAccel(gravity);
 	}
 	//creating the object
@@ -44,12 +49,18 @@ void demoGame::onFixedTimeStep()
 		Vector2 tmpVec = GetMousePosition(); //mouse position
 		glm::vec2 tmpPos = glm::vec2(tmpVec.x, tmpVec.y);
 		shape tmpShape = shape(currentShape); //creating the shape
-		physicsObject nextObject = physicsObject(tmpPos,BLUE,10,tmpShape); //creating the object, (position, color, weight, shape)
+		bool isStatic = false;
+		if(currentShape == 3)
+		{
+			isStatic = true;
+		}
+		physicsObject nextObject = physicsObject(tmpPos,BLUE,10,tmpShape, isStatic); //creating the object, (position, color, weight, shape)
 		physObjects.push_back(nextObject); //adding to the vector
 	}
 	if (IsMouseButtonDown(0)) {
 		for (size_t i = 0; i < physObjects.size(); i++)
 		{
+			if (!physObjects[i].isStatic)
 			physObjects[i].addForces(physObjects[i].findVectorToMouse() * 100.0f); //adding forces to every object in the vector
 		}
 	}
