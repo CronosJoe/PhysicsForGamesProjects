@@ -1,9 +1,0 @@
-Goals:
-Create an object that gravity doesn't affect - good
-Figure out it's depenetration so it stays static and doesn't move - kinda works investigate aabb aabb
-Apply a check so it doesn't get pulled with the rest of the objects - good
-
-Create chart and document for physics handler -needs done
-
-find and remove unneeded files - no idea where these are
-

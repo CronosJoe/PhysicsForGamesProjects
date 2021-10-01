@@ -9,7 +9,8 @@ from here select which folder you'd like to build it to and press select! In tha
 
 Controls for the physics handler-
 1 - press the 1 key to select circle as your spawn type shape.
-2- press the 2 key to select a non rotating square as your type shape (AABB)
+2 - press the 2 key to select a non rotating square as your type shape (AABB)
+3 - press the 3 key to select a static non rotating square as your type shape.
 left click - apply a force to all objects to pull them towards the current mouse position.
 right click - spawn the currently selected object.
 
